@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>LaTeX tricks and resources</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+	</head>
+	<body>
+		<h1>LaTeX tricks and resources</h1>
+
+		<h2>lstlistings for source code</h2>
+
+		Insert into preamble. Use with <code>\begin{lstlisting}...\end{lstlisting}</code>.
+
+		<h3>Colored</h3>
+
+		<p><a href="lstcolor.png">Preview</a>.</p>
+
+		<pre><code>\usepackage{color}
+\usepackage{bold-extra}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+	language=c, % Replace
+	basicstyle={\footnotesize\ttfamily},
+	keywordstyle={\bfseries\color{blue}},
+	commentstyle=\color{dkgreen},
+	stringstyle={\slshape\color{mauve}},
+	numberstyle=\footnotesize,
+	numbers=left,
+	showstringspaces=false,
+	breaklines=true,
+	tabsize=4,
+	frame=tb
+}</code></pre>
+
+		<h3>Monochrome</h3>
+
+		<p><a href="lstmono.png">Preview</a>.</p>
+
+<pre><code>\usepackage{xcolor}
+\usepackage{bold-extra}
+
+\lstset{
+	language=c, %Replace
+	basicstyle={\footnotesize\ttfamily},
+	keywordstyle=\bfseries,
+	commentstyle=\color{black!75},
+	stringstyle=\slshape,
+	numberstyle=\footnotesize,
+	numbers=left,
+	showstringspaces=false,
+	breaklines=true,
+	tabsize=4,
+	frame=tb
+}</code></pre>
+
+		<h2>Kitty/Vitaly listings language definition</h2>
+
+		<p>Use with <code>\lstset{language=kitty}</code> or <code>\lstinputlisting[language=kitty]{file.kit}</code>.</p>
+
+		<pre><code>\lstdefinelanguage{kitty} {
+	morekeywords={func,end,var,type,int,bool,array,of,record,
+		length,true,false,null,return,write,allocate,
+		if,then,else,while,do,for,
+		system,break,continue,string
+	},
+	sensitive=true,
+	morecomment=[l]{\#},
+	morecomment=[s]{(*}{*)},
+	morestring=[b]"
+}</code></pre>
+
+		<h2>Better x86 asm listings language definition</h2>
+
+		<pre><code>\lstdefinelanguage{myasm} {
+	morekeywords={
+		nop,movl,pushl,popl,cmpl,testl,leal,cmovl,jmp,je,jne,
+		jz,jnz,jg,jge,jl,jle,addl,subl,imul,idiv,cdq,incl,decl,
+		negl,andl,orl,xorl,notl,shrl,shll,sarl,sall,ret,leave,
+		call,setg,setl,setge,setle,setne,sete,movzbl,
+		eax,ebx,ecx,edx,edi,esi,ebp,esp,al,bl,cl,dl
+	},
+	sensitive=true,
+	morecomment=[l]{\#},
+	morestring=[b]"
+}</code></pre>
+
+		<h2>Weird symbols used in DM836</h2>
+
+		<p>Requires packages <code>amssymb</code> and <code>mathabx</code>.
+		Use <code>\usepackage[T1]{fontenc}</code> to get rid of warnings.</p>
+
+		<img src="dm836symbols.png" alt="DM836 symbols">
+
+	</body>
+</html>
